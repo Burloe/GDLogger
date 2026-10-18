@@ -115,6 +115,7 @@ const SPECIAL_COLORS := {
 @onready var prompt_popup: PanelContainer = %PromptPopupPanelContainer
 @onready var delete_category_popup: MarginContainer = %DeleteCategoryPopup
 @onready var dock_reload_btn: Button = %ReloadDockButton
+@onready var polling_timer: Timer = %PollingTimer
 @onready var debounce_timer: Timer = %DebounceTimer
 
 # Logs tab
@@ -251,7 +252,27 @@ func _ready() -> void:
 	logs_tab.is_active = true
 	settings_tab.data = data
 	data.update_list()
+	opened.connect(
+		func() -> void:	
+			if data.auto_reload: polling_timer.start(data.poll_rate)
+			print("opened", polling_timer.is_stopped())
+	)
+	closed.connect(
+	func() -> void:	
+		polling_timer.stop
+		print("closed", polling_timer.is_stopped())	
+	)
+	visibility_changed.connect(
+		func() -> void:
+			if visible:
+				if data.auto_reload:
+					polling_timer.start(data.poll_rate)
+					print("visible - ", polling_timer.is_stopped())
+			else:
+				polling_timer.stop()
+				print("hidden - ", polling_timer.is_stopped())
 
+	)
 	debounce_timer.wait_time = THEME_DEBOUNCE_SEC
 	debounce_timer.timeout.connect(_apply_theme_colors)
 
