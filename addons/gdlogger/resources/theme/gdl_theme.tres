@@ -480,6 +480,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 corner_detail = 4
+expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6pdd"]
@@ -1302,7 +1303,6 @@ TabContainer_NoHCMargs/styles/tab_unselected = SubResource("StyleBoxEmpty_cf0rl"
 TabContainer_NoHCMargs/styles/tabbar_background = SubResource("StyleBoxFlat_yqnrj")
 Tree/styles/panel = SubResource("StyleBoxFlat_8ifsw")
 VBoxContainer/constants/separation = 8
-VScrollBar/constants/padding_right = 0
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_v0l1u")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_q6pdd")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_v5nyb")

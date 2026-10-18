@@ -1,22 +1,6 @@
 @tool
 class_name GDLDock extends EditorDock
 
-# Adding a new setting:
-	# Add the settings to all appropriate dictionaries in "settings_dict"
-	# In _ready(), add the settings control node to btn_array so it's included in the uniform signal connections loop
-	# If setting requires a Container node to show tooltips(as is the case for most) add the container node to container_array and add the appropriate index in the corresponding_lbls array for the font color changes on mouse hover
-	# Implement the logic for applying the setting in signal function like _on_button_button_up()
-
-# TODO:
-	# GENERAL:
-		# Add EditorInspector for SaveData in MoreInfo panel
-	# Bugs: 
-		# Apply button reverts the name when renaming an existing category
-		# Renaming uses the old name
-	# DOCK CATEGORY TAB:
-		# 
-	# DOCK SETTINGS TAB:
-
 
 const THEME_DEBOUNCE_SEC: float = 0.08
 const gdl_theme = preload("uid://gjcp57h03j4p")
@@ -35,14 +19,11 @@ const COLOR_TO_STYLEBOX := {
 		"hover_font_color": "title_collapsed_hover_panel",
 	}
 }
-
 const BUTTON_STATES := ["normal", "hover", "pressed", "hover_pressed", "disabled"]
 const TAB_CONTAINER_RULES := {
 	"base_col-1": ["panel"],
 	"accent_col": ["tab_selected"],
 }
-
-# {control_type: {colour_tag: [stylebox names]}}. "*" matches every stylebox; unlisted ones stay "base_col".
 const STYLEBOX_COLORS := {
 	"Button_Accented": {
 		"accent_col": ["normal"],
@@ -79,12 +60,10 @@ const STYLEBOX_COLORS := {
 	"HSeparator_Weak": {"base_col+1": ["separator"]},
 	"VSeparator_Weak": {"base_col+1": ["separator"]},
 }
-
 const BORDER_COLORS := {
 	"LogFile": {"accent_col": ["hover"], "accent_col-1": ["pressed", "hover_pressed"]},
 }
 
-# {control_type: {colour_name: stylebox whose background decides the colour}}
 const SPECIAL_COLORS := {
 	"Button_RevertButton": {"icon_disabled_color": "disabled"},
 	"FoldableContainer": {
@@ -184,6 +163,7 @@ const SPECIAL_COLORS := {
 @onready var help_functions: 			FoldableContainer = %FunctionsHelp
 @onready var help_hotkeys: 				FoldableContainer = %HotkeysHelp
 @onready var help_formatting: 		FoldableContainer = %FormattingHelp
+@onready var gh_texrect: TextureRect = %GithubTextureRect
 
 @onready var settings = EditorInterface.get_editor_settings()
 var theme_col_base = ProjectSettings.get_setting("interface/theme/base_color")
@@ -195,19 +175,6 @@ var plugin_version: String =  "2.0.0":
 		if version_linkbtn:
 			version_linkbtn.text = str("v.", value)
 
-var log_header_value: String = "":
-	set(value):
-		if value != log_header_value:
-			log_header_value = value
-			sett_log_header_revert_btn.tooltip_text = str("Revert to '", value, "'")
-			data.header_format = value
-
-var entry_format_value: String = "":
-	set(value):
-		if value != entry_format_value:
-			entry_format_value = value
-			sett_entry_format_revert_btn.tooltip_text = str("Revert to '", value, "'")
-			data.entry_format = value 
 
 var is_shutting_down: bool = false:
 	set(value):
@@ -217,24 +184,6 @@ var is_shutting_down: bool = false:
 var FONT_DARK := Color.BLACK.lightened(0.15)
 var FONT_LIGHT := Color.WHITE.darkened(0.15)
 
-enum LimitMethod {
-	ENTRY_COUNT,
-	SESSION_TIMER,
-	BOTH,
-	SEPERATOR,
-	NONE
-}
-
-enum EntryCountAction {
-	OVERWRITE_ENTRIES,
-	RESTART,
-	STOP
-}
-
-enum SessionTimerAction {
-	RESTART,
-	STOP
-}
 
 
 
@@ -272,7 +221,6 @@ func _ready() -> void:
 				logs_tab.is_active = false
 	)
 	
-	logs_tab.request_save.connect(save_data)
 	logs_tab.request_categories_save.connect(func() -> void: save_data(false, "categories"))
 	settings_tab.request_save.connect(save_data)
 
@@ -370,8 +318,11 @@ func _assign_settings_controls() -> void:
 
 func reset_to_default() -> void:
 	sett_base_dir_apply_btn.disabled = true
+	sett_base_dir_revert_btn.disabled = true
 	sett_log_header_apply_btn.disabled = true
+	sett_log_header_revert_btn.disabled = true
 	sett_entry_format_apply_btn.disabled = true
+	sett_entry_format_revert_btn.disabled = true
 	sett_entry_format_warning.hide()
 	data.reset_to_default()
 
@@ -537,6 +488,8 @@ func _apply_font_icon_colors(tags: Dictionary) -> void:
 
 	var base_is_dark: bool = tags["base_col"].get_luminance() < 0.5
 	var text_color: Color = FONT_LIGHT if base_is_dark else FONT_DARK
+
+	gh_texrect.texture = gh_ico_darkmode if base_is_dark else gh_ico_lightmode
 
 	for c in ["font_color", "font_hover_color", "font_pressed_color", "font_hover_pressed_color"]:
 		gdl_theme.set_color(c, "CheckButton", text_color)

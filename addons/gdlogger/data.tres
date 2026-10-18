@@ -9,9 +9,13 @@ category_name = "game"
 category_path = "user://gdlogger/game_logs/"
 is_default = true
 
+[sub_resource type="Resource" id="Resource_ru745"]
+script = ExtResource("1_u03vm")
+category_name = "asdf"
+category_path = "user://gdlogger/asdf_logs/"
+
 [resource]
 script = ExtResource("2_ru745")
-categories = Array[ExtResource("1_u03vm")]([SubResource("Resource_u03vm")])
+categories = Array[ExtResource("1_u03vm")]([SubResource("Resource_u03vm"), SubResource("Resource_ru745")])
 default_category = "game"
 browser_sort = 1
-colorcode_dates = true

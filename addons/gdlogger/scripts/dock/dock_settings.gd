@@ -2,7 +2,6 @@
 extends Control
 
 signal request_save(ignore_errors:bool, source: String) ## Emitted to dock.gd to save dock's categories state to file. Settings still handles on a per case basis. "source" is used to specify what action emitted the signal for debugging purposes.
-signal request_theme_colors
 
 @onready var base_dir_line: LineEdit = %BaseDirLineEdit
 @onready var base_dir_apply_btn: Button = %BaseDirApplyButton
@@ -19,8 +18,6 @@ signal request_theme_colors
 
 @onready var autostart_btn: CheckButton = %AutostartCheckButton
 @onready var utc_btn: CheckButton = %UTCCheckButton
-@onready var colorcode_btn: CheckButton = %LGColorCodeCheckButton
-@onready var auto_reload_btn: CheckButton = %LGAutoReloadCheckButton
 
 @onready var limits_tabbar: TabBar = %LimitsTabBar
 
@@ -36,10 +33,8 @@ var session_duration_spinbox_line: LineEdit
 
 var file_count_spinbox_line: LineEdit
 @onready var file_count_spinbox: SpinBox = %FileCountSpinBox
-@onready var file_count_lbl: Label = %FileCountLabel
 
 @onready var id_fold_cont: FoldableContainer = %IDFoldableContainer
-@onready var id_align_lbl: Label = %IDAlignLabel
 @onready var id_align_opt_btn: OptionButton = %IDAlignOptButton
 
 @onready var id_toggle_btn: CheckButton = %IDToggleShowCheckButton
@@ -57,31 +52,16 @@ var inspector: EditorInspector
 
 @export var data: GDLData = null
 
-var _is_shutting_down: bool = false
 var id_font_settings_min_size: int = 200
 
 var btn_array: Array[Control] = []
-var container_array: Array[Control] = [] 
 
-var theme_colors = {}
-var settings_dict: Dictionary = {}
 
 ## Index 3 is a SEPERATOR and should not be used.
 enum LimitMethod {
 	ENTRY_COUNT,
 	SESSION_TIMER,
 	BOTH
-}
-
-enum EntryCountAction {
-	OVERWRITE_ENTRIES,
-	RESTART,
-	STOP
-}
-
-enum SessionTimerAction {
-	RESTART,
-	STOP
 }
 
 
@@ -205,7 +185,6 @@ func _connect_control_signal(node: Control) -> void:
 	elif node is SpinBox:
 		_connect_unique(node.value_changed, _on_spinbox_value_changed.bind(node)) 
 	elif node is Button:
-		# node.pressed.connect(_on_button_button_up.bind(node))
 		_connect_unique(node.pressed, _on_button_pressed.bind(node))
 
 

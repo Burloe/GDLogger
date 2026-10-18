@@ -1,11 +1,8 @@
 @tool
 extends HBoxContainer
 
-
-signal request_save(source: String) ## Emitted to dock.gd. "source" is purely for debugging to see what emitted.
 signal request_categories_save
 
-@onready var settings_tab: Control = %SettingsTab
 @onready var add_category_btn: Button = %AddCategoryButton
 @onready var category_scroll_container: ScrollContainer = %CategoryScrollContainer
 @onready var category_container: GridContainer = %CategoryGridContainer
@@ -22,7 +19,6 @@ signal request_categories_save
 
 @onready var log_settings_btn: Button = %LogSettingsButton
 @onready var log_settings_popup: PopupPanel = %LogsSettingsPanelPopup
-@onready var log_settings_content: BoxContainer = %LogSettingsContentBox
 @onready var open_w_os_btn: CheckButton = %LGOpenLogsCheckButton
 @onready var colorcode_btn: CheckButton = %LGColorCodeCheckButton
 @onready var sort_mode_btn: Button = %LGSortButton
@@ -57,10 +53,6 @@ var current_category: String = "":
 		if value != current_category:
 			current_category = value 
 			load_log_files()
-		
-var cur_logfile: GDLLogFile = null:
-	set(value):
-		cur_logfile = value 
 
 var open_log_with_os: bool = false:
 	set(value):
@@ -85,28 +77,10 @@ var poll_rate_value: int = 1:
 	set(value):
 		poll_rate_value = value
 		data.poll_rate = value
+		poll_rate_lbl.text = str("Poll Rate\n", data.poll_rate, " sec")
 		polling_timer.stop()
 		polling_timer.wait_time = value
 		polling_timer.start(value)
-
-var theme_colors: Dictionary = {}
-
-enum LimitMethod { ## Index 3 is a SEPERATOR and should not be used.
-	ENTRY_COUNT,
-	SESSION_TIMER,
-	BOTH,
-	SEPERATOR,
-	NONE
-}
-enum EntryCountAction {
-	OVERWRITE_ENTRIES,
-	RESTART,
-	STOP
-}
-enum SessionTimerAction {
-	RESTART,
-	STOP
-} 
 
 
 
@@ -131,14 +105,7 @@ func _ready() -> void:
 				polling_timer.start(data.poll_rate)
 			else:	polling_timer.stop()
 	)
-	poll_rate_slider.drag_ended.connect(
-		func(toggled_on: bool) -> void: 
-			poll_rate_value = poll_rate_slider.value
-			poll_rate_lbl.text = str("Poll Rate\n", data.poll_rate, " sec")
-			polling_timer.stop()
-			polling_timer.wait_time = data.poll_rate
-			polling_timer.start(data.poll_rate)
-	)
+	poll_rate_slider.drag_ended.connect(func(toggled_on: bool) -> void: poll_rate_value = poll_rate_slider.value)
 	open_w_os_btn.toggled.connect(func(toggled_on: bool) -> void: open_log_with_os = toggled_on)
 	colorcode_btn.toggled.connect(_on_colorcode_changed)
 	sort_mode_btn.button_up.connect(
@@ -146,11 +113,6 @@ func _ready() -> void:
 			cur_sort = (cur_sort + 1) % 2
 			load_log_files()
 	) 
-
-	inspector = EditorInspector.new()
-	inspector.edit(ResourceLoader.load("uid://cqn5x8cb7vjy3"))
-	inspector.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	inspector.size_flags_vertical = Control.SIZE_EXPAND_FILL 
 	open_log_with_os = open_log_with_os # Loads the icon from setter
 
 
@@ -306,7 +268,6 @@ func _on_set_default_category(cat: GDLLogCategory, set_status: bool) -> void:
 	var new_default: String = cat.category_name if set_status else ""
 	var changed: bool = data.default_category != new_default
 	data.default_category = new_default
-	_default_setting_in_progress = false
 	_default_setting_in_progress = true
 	
 	for log_c in category_container.get_children():
@@ -331,17 +292,6 @@ func handle_category_mov_button_state() -> void:
 		var category = category_container.get_child(i)
 		category.move_left_btn.disabled = (i == 0)
 		category.move_right_btn.disabled = (i == category_container.get_child_count() - 1)
-
-
-
-func _check_conflict_name(cat_obj: GDLLogCategory, new_name: String) -> bool:
-	for log_c in category_container.get_children():
-		if log_c == cat_obj:
-			continue
-		elif log_c.category_name == new_name:
-			if name == "": return false
-			return true
-	return false
 
 #endregion
 
@@ -558,11 +508,6 @@ func _open_log_file(log_file: GDLLogFile) -> void:
 		)
 	
 	popup_panel.file_name = str(fin_date, " | ", fin_time)
-	cur_logfile = log_file 
-
-
-func _on_polling_rate_slider_value_changed(value_changed: bool) -> void:
-	poll_rate_value = poll_rate_slider.value
 
 
 
@@ -609,35 +554,6 @@ func _set_logfile_color(file: GDLLogFile, color: Color) -> void:
 func _clear_logfile_color(file: GDLLogFile) -> void:
 	for item in LOGFILE_COLOR_ITEMS:
 		file.remove_theme_color_override(item)
-
-
-
-
-
-func _get_logfile_color(used_colors: Array[Color]) -> Color:
-	var is_dark: bool = settings.get_setting("interface/theme/base_color").get_luminance() <= 0.5
-	var sat_range := Vector2(0.65, 0.9) if is_dark else Vector2(0.75, 1.0)
-	var val_range := Vector2(0.85, 1.0) if is_dark else Vector2(0.45, 0.65)
-
-	var best_color := Color.WHITE
-	var best_dist := -1.0
-
-	for i in 24:
-		var hue := randf()
-		var min_dist := 1.0
-		for used: Color in used_colors:
-			var d := absf(hue - used.h)
-			min_dist = minf(min_dist, minf(d, 1.0 - d))
-
-		if min_dist > best_dist:
-			best_dist = min_dist
-			best_color = Color.from_hsv(
-				hue,
-				randf_range(sat_range.x, sat_range.y),
-				randf_range(val_range.x, val_range.y)
-			)
-
-	return best_color
 
 
 

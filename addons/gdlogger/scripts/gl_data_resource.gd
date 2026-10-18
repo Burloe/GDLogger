@@ -11,7 +11,7 @@ class_name GDLData extends Resource
 		default_category = value
 		update_list()
 		emit_changed()
-@export_subgroup("Settings")
+@export_subgroup("Log Tqb Settings")
 @export_enum("New", "Old") var browser_sort: int = 0:
 	set(value):
 		browser_sort = value
