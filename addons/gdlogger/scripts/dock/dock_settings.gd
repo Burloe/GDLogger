@@ -135,7 +135,7 @@ func _ready() -> void:
 
 ## Called by dock.gd after data is initialized.
 func initialize_tab() -> void:
-	entry_format_warning.visible = !_is_entry_format_valid(entry_format_line.text)
+	entry_format_warning.visible = !_entry_format_has_tag(entry_format_line.text)
 	data.apply_values()
 	_handle_limit_method_visibility(data.limit_method)
 	
@@ -278,8 +278,8 @@ func _handle_fold_container_min_size(is_folded: bool, fold_container: FoldableCo
 
 #region Helpers
 
-## Returns true if {entry} tag is present or is NOT empty.
-func _is_entry_format_valid(format: String) -> bool:
+
+func _entry_format_has_tag(format: String) -> bool: ## Returns true if {entry} tag is present or is NOT empty.
 	if format.is_empty(): return false
 	return format.contains("{entry}")
 
@@ -291,7 +291,6 @@ func _is_entry_format_valid(format: String) -> bool:
 #region Signal receivers
 
 func _on_button_pressed(node: Button) -> void:
-	print("apply button pressed: ", node.get_name())
 	match node:
 		base_dir_apply_btn:
 			if _apply_new_base_directory():
@@ -345,9 +344,9 @@ func _on_line_edit_text_changed(new_text: String, node: LineEdit) -> void:
 		header_line:
 			header_revert_btn.tooltip_text = str("Revert to:   ", data.header_format)
 		entry_format_line: 			
-			entry_format_warning.visible = !_is_entry_format_valid(new_text)
+			entry_format_warning.visible = !_entry_format_has_tag(new_text)
 			entry_format_line.tooltip_text = str("Revert to:   ", data.entry_format)
-			entry_format_line.set_theme_type_variation("LineEdit_FormatFields" if _is_entry_format_valid(new_text) else "LineEdit_FormatFieldsInvalid")
+			entry_format_line.set_theme_type_variation("LineEdit_FormatFields" if _entry_format_has_tag(new_text) else "LineEdit_FormatFieldsInvalid")
 			
 
 
