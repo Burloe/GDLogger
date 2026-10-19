@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3n416c5fajm5"]
 
-[ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/theme/gdl_theme.tres" id="1_g4hj7"]
+[ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/gdl_theme.tres" id="1_g4hj7"]
 [ext_resource type="Script" uid="uid://bns67apcu30kb" path="res://addons/gdlogger/scripts/dock/log_category.gd" id="2_t2282"]
 [ext_resource type="Resource" uid="uid://dj7h7t2v8csck" path="res://addons/gdlogger/data.tres" id="3_x8jw8"]
 [ext_resource type="Texture2D" uid="uid://vvwus07irw0o" path="res://addons/gdlogger/resources/icons/default_unselected.svg" id="4_tlh5o"]

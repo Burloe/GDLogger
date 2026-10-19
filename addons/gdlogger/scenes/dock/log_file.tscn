@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bq7nahsc5aca7"]
 
-[ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/theme/gdl_theme.tres" id="1_etmb7"]
+[ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/gdl_theme.tres" id="1_etmb7"]
 [ext_resource type="Script" uid="uid://d0mv8q7rr2bxr" path="res://addons/gdlogger/scripts/dock/log_file.gd" id="3_u25kw"]
 
 [node name="LogFileButton" type="Button" unique_id=332590141]

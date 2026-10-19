@@ -2,10 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://vlt2sbet5kyx" path="res://addons/gdlogger/resources/icons/gdlogger_icon_darkmode.svg" id="1_lnu3o"]
 [ext_resource type="Resource" uid="uid://dj7h7t2v8csck" path="res://addons/gdlogger/data.tres" id="3_d5ffo"]
-[ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/theme/gdl_theme.tres" id="4_o07th"]
 [ext_resource type="Script" uid="uid://bxe2uhpjpqub" path="res://addons/gdlogger/scripts/dock/dock.gd" id="6_0swix"]
 [ext_resource type="Script" uid="uid://bg42rstww6k77" path="res://addons/gdlogger/scripts/dock/dock_logs.gd" id="10_kapcw"]
-[ext_resource type="Theme" path="res://addons/gdlogger/resources/gdl_theme.tres" id="11_caao6"]
+[ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/gdl_theme.tres" id="11_caao6"]
 [ext_resource type="Script" uid="uid://dkctt8pbi4h6m" path="res://addons/gdlogger/scripts/dock/dock_settings.gd" id="19_luwxg"]
 [ext_resource type="Texture2D" uid="uid://c74n2f1j4wew5" path="res://addons/gdlogger/resources/icons/GitHub_Invertocat_White.svg" id="21_8r8ny"]
 [ext_resource type="Texture2D" uid="uid://dpxjo7fserq3q" path="res://addons/gdlogger/resources/icons/id_example_panel_tex.png" id="23_qrqlu"]
@@ -194,13 +193,13 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_constants/side_margin = 16
 theme_override_constants/tab_separation = 10
 theme_override_constants/icon_separation = 8
 theme_override_constants/icon_max_width = 23
-current_tab = 2
+current_tab = 1
 tab_focus_mode = 0
 tab_0/title = " "
 tab_0/icon = ExtResource("1_lnu3o")
@@ -218,7 +217,6 @@ metadata/_tab_name = " "
 
 [node name="LogsTab" type="HBoxContainer" parent="DockTabContainer" unique_id=1085194574]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -231,17 +229,17 @@ metadata/_tab_name = "Logs"
 
 [node name="VBoxContainerSidebar" type="VBoxContainer" parent="DockTabContainer/LogsTab" unique_id=1074115547]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 
 [node name="LogSidebarTop" type="PanelContainer" parent="DockTabContainer/LogsTab/VBoxContainerSidebar" unique_id=349648368]
 custom_minimum_size = Vector2(48, 88)
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DockTabContainer/LogsTab/VBoxContainerSidebar/LogSidebarTop" unique_id=1306483708]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 
 [node name="AddCategoryButton" type="Button" parent="DockTabContainer/LogsTab/VBoxContainerSidebar/LogSidebarTop/VBoxContainer" unique_id=1822746076]
 unique_name_in_owner = true
@@ -250,7 +248,7 @@ custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 tooltip_text = "Create new category"
 mouse_default_cursor_shape = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_boc7e")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_boc7e")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_boc7e")
@@ -267,7 +265,7 @@ custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 tooltip_text = "Opens Base Directory using OS file browser"
 mouse_default_cursor_shape = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_boc7e")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_boc7e")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_boc7e")
@@ -282,15 +280,16 @@ custom_minimum_size = Vector2(48, 0)
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 
 [node name="LGReloadButton" type="Button" parent="DockTabContainer/LogsTab/VBoxContainerSidebar/LogSidebarBottom" unique_id=1160699755]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 tooltip_text = "Refresh files"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_boc7e")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_boc7e")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_boc7e")
@@ -308,7 +307,7 @@ custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_vertical = 8
 tooltip_text = "Refresh files"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 icon = SubResource("DPITexture_ytbm3")
 flat = true
 icon_alignment = 1
@@ -316,14 +315,14 @@ icon_alignment = 1
 [node name="VBoxContainerMain" type="VBoxContainer" parent="DockTabContainer/LogsTab" unique_id=1488523849]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 
 [node name="CategoryScrollContainer" type="ScrollContainer" parent="DockTabContainer/LogsTab/VBoxContainerMain" unique_id=642802176]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 88)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"ScrollContainer_HCMargsOnly"
 follow_focus = true
 
@@ -339,7 +338,7 @@ columns = 7
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"ScrollContainer_HCMargsOnly"
 
 [node name="FileFlowContainer" type="FlowContainer" parent="DockTabContainer/LogsTab/VBoxContainerMain/LogFileScrollContainer" unique_id=1474572224]
@@ -350,6 +349,7 @@ size_flags_vertical = 3
 
 [node name="SettingsTab" type="Control" parent="DockTabContainer" unique_id=1242299856]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 script = ExtResource("19_luwxg")
@@ -365,17 +365,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_constants/separation = 8
 
 [node name="SidebarPanel" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer" unique_id=1744305237]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 
 [node name="BoxContainer" type="BoxContainer" parent="DockTabContainer/SettingsTab/BoxContainer/SidebarPanel" unique_id=1279078324]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 vertical = true
 
 [node name="ResetSettingsButton" type="Button" parent="DockTabContainer/SettingsTab/BoxContainer/SidebarPanel/BoxContainer" unique_id=1084513318]
@@ -384,7 +384,7 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 layout_direction = 2
 tooltip_text = "Reset to all settings to default"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7xlqe")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7xlqe")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7xlqe")
@@ -398,7 +398,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 tooltip_text = "Open the base directory folder"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_7xlqe")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7xlqe")
@@ -413,7 +413,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(336, 0)
 custom_maximum_size = Vector2(336, -1)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"ScrollContainer_NoCMargins"
 follow_focus = true
 vertical_scroll_mode = 2
@@ -425,7 +425,7 @@ custom_maximum_size = Vector2(320, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 vertical = true
 
 [node name="GeneralFoldableContainer" type="FoldableContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer" unique_id=1807564640]
@@ -433,36 +433,38 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 40)
 custom_maximum_size = Vector2(320, -1)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
+folded = true
 title = "General"
 title_alignment = 1
 foldable_group = SubResource("FoldableGroup_k47fi")
 
 [node name="BoxContainer" type="BoxContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer" unique_id=1258123801]
+visible = false
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, 1)
 offset_transform_visual_only = false
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 vertical = true
 
 [node name="Autostart" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer" unique_id=456151027]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="AutostartCheckButton" type="CheckButton" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer/Autostart" unique_id=1302278265]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(312, 32)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 button_pressed = true
 text = "Autostart sessions"
 flat = true
 
 [node name="UTC" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer" unique_id=1994197389]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="UTCCheckButton" type="CheckButton" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer/UTC" unique_id=660967489]
@@ -471,7 +473,7 @@ custom_minimum_size = Vector2(312, 32)
 layout_mode = 2
 tooltip_text = "Use UTC(Coordinated Universal Time) 
 instead of system/local time for date and timestamps"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qiahn")
 text = "UTC time"
 
@@ -483,7 +485,7 @@ vertical = true
 [node name="PanelContainer" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer/BoxContainer" unique_id=910207150]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="Label" type="Label" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer/BoxContainer/PanelContainer" unique_id=1239418831]
@@ -496,13 +498,13 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(304, 40)
 custom_maximum_size = Vector2(304, 40)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="LimitsTabBar" type="TabBar" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer/BoxContainer/TabBarPanelContainer" unique_id=471878700]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_constants/tab_separation = 33
 current_tab = 0
 tab_alignment = 1
@@ -519,7 +521,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(304, 40)
 custom_maximum_size = Vector2(304, 40)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="BoxContainer" type="BoxContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer/BoxContainer/EntryCount" unique_id=949048878]
@@ -534,7 +536,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "Count"
 vertical_alignment = 1
 
@@ -549,7 +551,7 @@ tooltip_text = "Action taken when the entry count cap is reached
 Overwrite - Overwrites the oldest entry.
 Restart - Restarts session and creates new log
 Stop - Stops session entirely"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"OptionButton_Limits"
 toggle_mode = false
 action_mode = 1
@@ -571,7 +573,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 tooltip_text = "Entry cap for the action to be triggered"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"Spinbox_Limits"
 min_value = 10.0
 max_value = 5000.0
@@ -588,7 +590,7 @@ visible = false
 custom_minimum_size = Vector2(304, 40)
 custom_maximum_size = Vector2(304, 40)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="SessionTimerActionBox" type="BoxContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer/BoxContainer/SessionTimer" unique_id=1492136270]
@@ -604,7 +606,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "Timer"
 vertical_alignment = 1
 
@@ -616,7 +618,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 tooltip_text = "Action taken upon timer timeout"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"OptionButton_Limits"
 toggle_mode = false
 action_mode = 1
@@ -636,7 +638,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 tooltip_text = "Session timer wait time in seconds"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"Spinbox_Limits"
 max_value = 10000.0
 value = 1200.0
@@ -652,7 +654,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(304, 40)
 custom_maximum_size = Vector2(304, 40)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="FileCountLabel" type="Label" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/GeneralFoldableContainer/BoxContainer/BoxContainer/FileCount" unique_id=977368642]
@@ -662,7 +664,7 @@ layout_mode = 2
 size_flags_horizontal = 2
 tooltip_text = "Number of .log files within each category's directory"
 mouse_filter = 0
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "File cap"
 vertical_alignment = 1
 
@@ -674,7 +676,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 tooltip_text = "Limits the number of files in any log category folder.
 Zero value disables this feature"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"Spinbox_Limits"
 value = 10.0
 rounded = true
@@ -689,7 +691,7 @@ custom_minimum_size = Vector2(320, 40)
 custom_maximum_size = Vector2(320, -1)
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "ID Overlay"
 title_alignment = 1
@@ -701,12 +703,12 @@ layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, 1)
 offset_transform_visual_only = false
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_constants/separation = 8
 
 [node name="IDToggle" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/IDFoldableContainer/VBoxContainer" unique_id=1618183397]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="IDToggleShowCheckButton" type="CheckButton" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/IDFoldableContainer/VBoxContainer/IDToggle" unique_id=1203264481]
@@ -714,13 +716,13 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 tooltip_text = "Toggles overlay visibility rather than showing hotkey is pressed."
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qiahn")
 text = "Toggle with hotkey"
 
 [node name="IDStartup" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/IDFoldableContainer/VBoxContainer" unique_id=1617699154]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="IDStartupCheckButton" type="CheckButton" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/IDFoldableContainer/VBoxContainer/IDStartup" unique_id=1292135092]
@@ -728,13 +730,13 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 tooltip_text = "Shows ID on startup IF 'Toggle Overlay' is enabled"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qiahn")
 text = "Show on startup"
 
 [node name="IDPrint" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/IDFoldableContainer/VBoxContainer" unique_id=45046447]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="IDPrintCheckButton" type="CheckButton" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/IDFoldableContainer/VBoxContainer/IDPrint" unique_id=1333754547]
@@ -742,13 +744,13 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 tooltip_text = "Print instance ID to output when Display Instance ID hotkey is pressed"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qiahn")
 text = "Print on hotkey press"
 
 [node name="IDAlign" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/IDFoldableContainer/VBoxContainer" unique_id=1302575413]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="IDAlignLabel" type="Label" parent="DockTabContainer/SettingsTab/BoxContainer/LSettingsPanel/BoxContainer/IDFoldableContainer/VBoxContainer/IDAlign" unique_id=799453164]
@@ -756,7 +758,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 32)
 layout_mode = 2
 size_flags_horizontal = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "Overlay Position"
 vertical_alignment = 1
 
@@ -765,7 +767,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 32)
 layout_mode = 2
 size_flags_horizontal = 8
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"OptionButton_Limits"
 toggle_mode = false
 action_mode = 1
@@ -809,7 +811,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_constants/outline_size = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qo8nw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qo8nw")
@@ -825,7 +827,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "Preview:"
 label_settings = SubResource("LabelSettings_cp33x")
 
@@ -833,7 +835,7 @@ label_settings = SubResource("LabelSettings_cp33x")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Overlay Appearance "
 
@@ -841,7 +843,7 @@ title = "Overlay Appearance "
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"ScrollContainer_NoCMargins"
 follow_focus = true
 scroll_hint_mode = 1
@@ -850,7 +852,7 @@ scroll_hint_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_constants/separation = 4
 vertical = true
 
@@ -858,7 +860,7 @@ vertical = true
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Directory and Formats"
 foldable_group = SubResource("FoldableGroup_fcs7p")
@@ -870,7 +872,7 @@ theme_override_constants/separation = 15
 
 [node name="BaseDir" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/RSettingsPanel/BoxContainer/DirectoryFoldableContainer/BoxContainer" unique_id=1206420114]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="BaseDirHBox" type="HBoxContainer" parent="DockTabContainer/SettingsTab/BoxContainer/RSettingsPanel/BoxContainer/DirectoryFoldableContainer/BoxContainer/BaseDir" unique_id=669120101]
@@ -888,7 +890,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(155, 32)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_font_sizes/font_size = 14
 text = "Log Directory:"
 vertical_alignment = 1
@@ -908,7 +910,7 @@ Recommended to use either a directory within \"user://\" or \"res://\"
 
 Default path is \"user://GDLogger/\". "
 focus_mode = 1
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"LineEdit_FormatFields"
 text = "user://gdlogger/"
 placeholder_text = "user://gdlogger/"
@@ -925,7 +927,7 @@ offset_transform_visual_only = false
 tooltip_text = "Revert to last applied name"
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"Button_RevertButton"
 theme_override_colors/icon_pressed_color = Color(0.7490196, 0.3019608, 0.07450981, 1)
 theme_override_colors/icon_hover_color = Color(1, 0.5126667, 0.13999999, 1)
@@ -956,7 +958,7 @@ icon_alignment = 1
 
 [node name="Header" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/RSettingsPanel/BoxContainer/DirectoryFoldableContainer/BoxContainer" unique_id=347861912]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="HeaderHBox" type="HBoxContainer" parent="DockTabContainer/SettingsTab/BoxContainer/RSettingsPanel/BoxContainer/DirectoryFoldableContainer/BoxContainer/Header" unique_id=2063796377]
@@ -977,7 +979,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(155, 32)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "Log Header Format:"
 vertical_alignment = 1
 
@@ -1000,7 +1002,7 @@ Supported format tags:
     {yy}   {mm}   {dd} - year, month, day 
     {hh}   {mi}   {ss} - hour, minute, second"
 focus_mode = 1
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"LineEdit_FormatFields"
 text = "{project_name} {version} {category} session [{yy}-{mm}-{dd} | {hh}:{mi}:{ss}]:"
 placeholder_text = "{project_name} {version} {category} session [{yy}-{mm}-{dd} | {hh}:{mi}:{ss}]:"
@@ -1018,7 +1020,7 @@ offset_transform_visual_only = false
 tooltip_text = "Revert to '{project_name} {version} {category} session [{yy}-{mm}-{dd} | {hh}:{mi}:{ss}]:'"
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"Button_RevertButton"
 theme_override_colors/icon_pressed_color = Color(0.7490196, 0.3019608, 0.07450981, 1)
 theme_override_colors/icon_hover_color = Color(1, 0.5126667, 0.13999999, 1)
@@ -1049,7 +1051,7 @@ icon_alignment = 1
 
 [node name="EntryFormat" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/RSettingsPanel/BoxContainer/DirectoryFoldableContainer/BoxContainer" unique_id=706618060]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="EntryFormatHBox" type="HBoxContainer" parent="DockTabContainer/SettingsTab/BoxContainer/RSettingsPanel/BoxContainer/DirectoryFoldableContainer/BoxContainer/EntryFormat" unique_id=154378586]
@@ -1073,7 +1075,7 @@ custom_minimum_size = Vector2(155, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "Entry Format:"
 vertical_alignment = 1
 
@@ -1097,7 +1099,7 @@ Supported tags:
     {yy}   {mm}   {dd} - year, month, day 
     {hh}   {mi}   {ss} - hour, minute, second "
 focus_mode = 1
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"LineEdit_FormatFields"
 text = "[{hh}:{mi}:{ss}] {instance_id}: {entry}"
 placeholder_text = "[{hh}:{mi}:{ss}] {instance_id}: {entry}"
@@ -1129,7 +1131,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "{entry} required"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1146,7 +1148,7 @@ offset_transform_visual_only = false
 tooltip_text = "Revert to '[{hh}:{mi}:{ss}] {instance_id}: {entry}'"
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"Button_RevertButton"
 theme_override_colors/icon_pressed_color = Color(0.7490196, 0.3019608, 0.07450981, 1)
 theme_override_colors/icon_hover_color = Color(1, 0.5126667, 0.13999999, 1)
@@ -1181,7 +1183,7 @@ icon_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Hotkeys"
 foldable_group = SubResource("FoldableGroup_fcs7p")
@@ -1193,7 +1195,7 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"TabContainer_NoHCMargs"
 theme_override_constants/tab_separation = 6
 current_tab = 0
@@ -1205,7 +1207,7 @@ metadata/_tab_name = "Help"
 [node name="GettingStarted" type="ScrollContainer" parent="DockTabContainer/HelpTab" unique_id=1377872369]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"ScrollContainer_NoCMargins"
 scroll_vertical_custom_step = 20.0
 scroll_hint_mode = 1
@@ -1223,7 +1225,7 @@ theme_override_constants/separation = 8
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Getting Started with GDLogger"
 foldable_group = SubResource("FoldableGroup_tvbkj")
@@ -1243,7 +1245,7 @@ custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2vjd2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vjd2")
 bbcode_enabled = true
@@ -1267,7 +1269,7 @@ Use the Logs tab to add, remove, or rename categories and even read log files. S
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Categories"
 foldable_group = SubResource("FoldableGroup_tvbkj")
@@ -1278,7 +1280,7 @@ custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2vjd2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vjd2")
 bbcode_enabled = true
@@ -1295,7 +1297,7 @@ fit_content = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Functions"
 foldable_group = SubResource("FoldableGroup_fx5fv")
@@ -1315,7 +1317,7 @@ Hotkeys can be customized by navigating to res://addons/gdlogger/, where the sho
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2vjd2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vjd2")
 bbcode_enabled = true
@@ -1343,7 +1345,7 @@ There are two signals available to help you synchronize the plugin with game log
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Messages / Entries"
 foldable_group = SubResource("FoldableGroup_tvbkj")
@@ -1363,7 +1365,7 @@ custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2vjd2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vjd2")
 bbcode_enabled = true
@@ -1384,7 +1386,7 @@ custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2vjd2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vjd2")
 bbcode_enabled = true
@@ -1398,7 +1400,7 @@ fit_content = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Instance ID & Multiple Instances"
 foldable_group = SubResource("FoldableGroup_tvbkj")
@@ -1409,7 +1411,7 @@ custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2vjd2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vjd2")
 text = "When running multiple instances of your project, as is the case with multiplayer games where two or more instances is run for debugging. The two instances will log into the same file, and by default. Entries are tagged with a unique instance ID to help distinguish which instance logged what entry. The instance ID can be removed by erasing the {instance_id} tag from the Entry Format setting.
@@ -1420,7 +1422,7 @@ To see the ID of an instance, use the Display Instance ID hotkey(Ctrl + Shift + 
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Formatting"
 foldable_group = SubResource("FoldableGroup_fx5fv")
@@ -1430,7 +1432,7 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2vjd2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vjd2")
 bbcode_enabled = true
@@ -1456,7 +1458,7 @@ fit_content = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 folded = true
 title = "Hotkeys"
 foldable_group = SubResource("FoldableGroup_fx5fv")
@@ -1466,7 +1468,7 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2vjd2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2vjd2")
 bbcode_enabled = true
@@ -1481,7 +1483,7 @@ fit_content = true
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"ScrollContainer_NoCMargins"
 scroll_hint_mode = 1
 tile_scroll_hint = true
@@ -1496,7 +1498,7 @@ size_flags_vertical = 3
 [node name="BoxContainer" type="BoxContainer" parent="DockTabContainer/HelpTab/MoreInfo/BoxContainer" unique_id=973467980]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 vertical = true
 
 [node name="Label" type="Label" parent="DockTabContainer/HelpTab/MoreInfo/BoxContainer/BoxContainer" unique_id=27916166]
@@ -1504,7 +1506,7 @@ custom_minimum_size = Vector2(356, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "If issues with the plugin arise, navigate to  \"res://addons/gdlogger/data.tres\", ensure it exists and secondly. Try replacing it with a new one by deleting it and right-click in the FileSystem folder > Create new > Resource > Find custom resource \"GDLData\", just make sure it's named \"data.tres\" and it's path is identical. This will reset categories and settings. 
 
 There's an issue with the icons not properly updating their colors in the dock whenever you switch between light and dark themes and base colors. It's fixed by simply reloading the editor which can be done via Project > Reload Current Project or restarting Godot
@@ -1544,7 +1546,7 @@ vertical = true
 
 [node name="FoldableContainer" type="FoldableContainer" parent="DockTabContainer/HelpTab/MoreInfo/BoxContainer/BoxContainer1" unique_id=1289137427]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 title = "PluginData"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DockTabContainer/HelpTab/MoreInfo/BoxContainer/BoxContainer1/FoldableContainer" unique_id=1993408511]
@@ -1554,7 +1556,7 @@ theme_override_constants/separation = 0
 [node name="Label" type="Label" parent="DockTabContainer/HelpTab/MoreInfo/BoxContainer/BoxContainer1/FoldableContainer/VBoxContainer" unique_id=1416033012]
 modulate = Color(1, 0.26, 0.26, 1)
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 11
 text = "EDIT WITH CAUTION!"
@@ -1569,7 +1571,6 @@ layout_mode = 2
 [node name="LogFilePanelPopup" parent="DockTabContainer" unique_id=87534791 instance=ExtResource("24_ffv0r")]
 unique_name_in_owner = true
 visible = false
-theme = ExtResource("11_caao6")
 
 [node name="LogsSettingsPanelPopup" type="PopupPanel" parent="DockTabContainer" unique_id=1420748330]
 unique_name_in_owner = true
@@ -1577,7 +1578,7 @@ oversampling_override = 1.0
 position = Vector2i(65, 32)
 size = Vector2i(296, 245)
 min_size = Vector2i(296, 188)
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PopupPanel_LogSettings"
 
 [node name="LogSettingsContentBox" type="BoxContainer" parent="DockTabContainer/LogsSettingsPanelPopup" unique_id=1584447820]
@@ -1593,7 +1594,7 @@ vertical = true
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Automatically reload log files in Logs tab"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"Button_SortButton"
 text = "Old first "
 alignment = 2
@@ -1605,38 +1606,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "  Sort files by: "
 vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="DockTabContainer/LogsSettingsPanelPopup/LogSettingsContentBox" unique_id=690195752]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="LGColorCodeCheckButton" type="CheckButton" parent="DockTabContainer/LogsSettingsPanelPopup/LogSettingsContentBox/PanelContainer" unique_id=498202583]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Automatically reload log files in Logs tab"
-theme = ExtResource("4_o07th")
-button_pressed = true
+theme = ExtResource("11_caao6")
 text = "Color code files by day"
 
 [node name="PanelContainer2" type="PanelContainer" parent="DockTabContainer/LogsSettingsPanelPopup/LogSettingsContentBox" unique_id=2072660849]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="LGOpenLogsCheckButton" type="CheckButton" parent="DockTabContainer/LogsSettingsPanelPopup/LogSettingsContentBox/PanelContainer2" unique_id=1244649287]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Automatically reload log files in Logs tab"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 text = "Open files in Editor"
 
 [node name="PanelContainer3" type="PanelContainer" parent="DockTabContainer/LogsSettingsPanelPopup/LogSettingsContentBox" unique_id=1802271510]
 layout_mode = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_type_variation = &"PanelContainer_TabBar"
 
 [node name="BoxContainer" type="BoxContainer" parent="DockTabContainer/LogsSettingsPanelPopup/LogSettingsContentBox/PanelContainer3" unique_id=1255638466]
@@ -1647,7 +1647,7 @@ vertical = true
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Automatically or manual reloading of log files"
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 button_pressed = true
 text = "Automatic file reloading"
 
@@ -1693,7 +1693,7 @@ custom_maximum_size = Vector2(64, -1)
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(8, -8)
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 flat = true
 icon_alignment = 1
 
@@ -1732,7 +1732,7 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_font_sizes/font_size = 64
 text = "Reload Dock"
 
@@ -1749,13 +1749,13 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PromptPopupPanelContainer/DeleteCategoryPopup/PanelContainer" unique_id=432949049]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 
 [node name="Control" type="Control" parent="PromptPopupPanelContainer/DeleteCategoryPopup/PanelContainer/VBoxContainer" unique_id=642737652]
 layout_mode = 2
@@ -1787,7 +1787,7 @@ icon_alignment = 1
 custom_minimum_size = Vector2(142, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 theme_override_constants/line_spacing = -5
 theme_override_font_sizes/font_size = 22
 text = "Retain directory 
@@ -1798,7 +1798,7 @@ autowrap_mode = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="PromptPopupPanelContainer/DeleteCategoryPopup/PanelContainer/VBoxContainer" unique_id=1765618995]
 layout_mode = 2
 mouse_filter = 2
-theme = ExtResource("4_o07th")
+theme = ExtResource("11_caao6")
 alignment = 1
 
 [node name="KeepDirYesButton" type="Button" parent="PromptPopupPanelContainer/DeleteCategoryPopup/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1798434669]

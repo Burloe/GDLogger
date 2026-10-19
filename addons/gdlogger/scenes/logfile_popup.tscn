@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhpqc8gwb77v0"]
 
 [ext_resource type="Script" uid="uid://evoiwudnaiqc" path="res://addons/gdlogger/scripts/log_popup.gd" id="2_umimx"]
-[ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/theme/gdl_theme.tres" id="3_bte71"]
+[ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/gdl_theme.tres" id="3_bte71"]
 [ext_resource type="LabelSettings" uid="uid://cqn5x8cb7vjy3" path="res://addons/gdlogger/file_content_label_settings.tres" id="4_umimx"]
 
 [sub_resource type="DPITexture" id="DPITexture_jp7po"]
