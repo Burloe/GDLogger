@@ -7,12 +7,16 @@
   <a href="https://godotengine.org/download/windows/">
     <img alt="Not affiliated with the Godot Engine/Foundation" src="https://img.shields.io/badge/Not%20affiliated%20with%20the-Godot%20Engine%2FFoundation-478CBF?style=flat&logo=godotengine&logoColor=white" />
   </a>
+  
   <p>    </p>
   </a>
+  
   <img alt="Asset Library coming soon" src="https://img.shields.io/badge/Asset%20Library-coming%20soon-478CBF?style=flat&logo=godotengine&logoColor=white" />
-  <a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FBurloe%2FGDLogger%2Ftree%2Fmain%2Faddons%2Fgdlogger">
+  
+  <a href="https://github.com/Burloe/GDLogger/raw/refs/heads/downloads/GDLogger.zip">
     <img alt="Download GDLogger" src="https://img.shields.io/badge/Download-GDLogger-brightgreen?style=flat&logo=github&logoColor=white" />
   </a>
+
 </div><br>
 <p><strong>GDLogger</strong> is a simple and flexible logging plugin for <em>Godot 4.7+</em>, which captures and stores game events (and data) into external <code>.log</code> files accessible by both developers and players to aid in development and maintaining of your projects. With minimal setup, GDLogger can be quickly integrated into any project to run in the background at all times or log specific events during testing. With plenty of customization options available, log entries can be tailored to fit your project's needs and make debugging and investigating issues easier.</p>
 
