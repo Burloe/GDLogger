@@ -1,0 +1,45 @@
+
+name: Build GDLogger Download
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "addons/gdlogger/**"
+      - ".github/workflows/build-addon.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gdlogger-download
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Create GDLogger ZIP
+        run: |
+          cd addons
+          zip -r "$RUNNER_TEMP/GDLogger.zip" gdlogger
+
+      - name: Publish ZIP to downloads branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git switch --orphan gdlogger-download-build
+          git rm -rf .
+
+          cp "$RUNNER_TEMP/GDLogger.zip" GDLogger.zip
+          git add GDLogger.zip
+          git commit -m "Update GDLogger download"
+
+          git push --force origin HEAD:downloads
