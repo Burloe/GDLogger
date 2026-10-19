@@ -17,13 +17,16 @@
     <img alt="Download GDLogger" src="https://img.shields.io/badge/Download-GDLogger-brightgreen?style=flat&logo=github&logoColor=white" />
   </a>
 
+
+
+
+
 </div><br>
 <p><strong>GDLogger</strong> is a simple and flexible logging plugin for <em>Godot 4.7+</em>, which captures and stores game events (and data) into external <code>.log</code> files accessible by both developers and players to aid in development and maintaining of your projects. With minimal setup, GDLogger can be quickly integrated into any project to run in the background at all times or log specific events during testing. With plenty of customization options available, log entries can be tailored to fit your project's needs and make debugging and investigating issues easier.</p>
 
 <p>Defining log entries is as easy as writing a `print()` statement, only requiring a simple string, which can include any data (that can be converted into a string) and an integer to determine which category/file to log the entry in. Formatting strings to include data can be done in multiple ways and is no different than normal. Here are 3 examples that result in the same log entry:</p>
 
-
-https://github.com/user-attachments/assets/d4d3f91f-bb29-4b53-a3d9-73050c534335
+https://github.com/user-attachments/assets/d7d15005-e1c1-48d8-bd4e-71bd89dfac57
 
 
 <pre><code>
