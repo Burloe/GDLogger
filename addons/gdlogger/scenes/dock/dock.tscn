@@ -199,7 +199,7 @@ theme_override_constants/side_margin = 16
 theme_override_constants/tab_separation = 10
 theme_override_constants/icon_separation = 8
 theme_override_constants/icon_max_width = 23
-current_tab = 1
+current_tab = 2
 tab_focus_mode = 0
 tab_0/title = " "
 tab_0/icon = ExtResource("1_lnu3o")
@@ -217,6 +217,7 @@ metadata/_tab_name = " "
 
 [node name="LogsTab" type="HBoxContainer" parent="DockTabContainer" unique_id=1085194574]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -349,7 +350,6 @@ size_flags_vertical = 3
 
 [node name="SettingsTab" type="Control" parent="DockTabContainer" unique_id=1242299856]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 script = ExtResource("19_luwxg")
@@ -861,14 +861,13 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("11_caao6")
-folded = true
 title = "Directory and Formats"
 foldable_group = SubResource("FoldableGroup_fcs7p")
 
 [node name="BoxContainer" type="BoxContainer" parent="DockTabContainer/SettingsTab/BoxContainer/RSettingsPanel/BoxContainer/DirectoryFoldableContainer" unique_id=525567331]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 15
+vertical = true
 
 [node name="BaseDir" type="PanelContainer" parent="DockTabContainer/SettingsTab/BoxContainer/RSettingsPanel/BoxContainer/DirectoryFoldableContainer/BoxContainer" unique_id=1206420114]
 layout_mode = 2
