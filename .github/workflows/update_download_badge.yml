@@ -23,23 +23,30 @@ jobs:
 
     steps:
       - name: Checkout main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Create GDLogger ZIP
         run: |
           cd addons
           zip -r "$RUNNER_TEMP/GDLogger.zip" gdlogger
+          unzip -l "$RUNNER_TEMP/GDLogger.zip"
 
       - name: Publish ZIP to downloads branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          mkdir -p "$RUNNER_TEMP/publish"
+          cd "$RUNNER_TEMP/publish"
+
+          cp "$RUNNER_TEMP/GDLogger.zip" .
+
+          git init -b downloads
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git switch --orphan gdlogger-download-build
-          git rm -rf .
-
-          cp "$RUNNER_TEMP/GDLogger.zip" GDLogger.zip
           git add GDLogger.zip
           git commit -m "Update GDLogger download"
 
-          git push --force origin HEAD:downloads
+          git push --force \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            HEAD:refs/heads/downloads
