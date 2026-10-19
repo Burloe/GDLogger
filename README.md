@@ -1,4 +1,3 @@
-
 <h1 align="center">
   <img width="470" height="174" alt="gdlogger_icon_web" src="https://github.com/user-attachments/assets/0638adb1-2c08-4089-8b08-af956794fda7" />
 
@@ -8,6 +7,10 @@
   </a>
 </h1>
 <p><i>GDLogger is not affiliated with the Godot Foundation or the engine</i></p>
+
+<br>
+
+https://github.com/user-attachments/assets/e69504f9-e053-4659-bb74-daf220ca17fe
 
 <br>
 
