@@ -202,11 +202,11 @@ func _ready() -> void:
 	settings_tab.data = data
 	data.update_list()
 
-	opened.connect(func() -> void: if data.auto_reload: polling_timer.start(data.poll_rate))
+	opened.connect(_start_polling)
 	closed.connect(func() -> void: polling_timer.stop())
 	visibility_changed.connect(
 		func() -> void:
-			if visible:	if data.auto_reload: polling_timer.start(data.poll_rate)
+			if visible: _start_polling()
 			else:	polling_timer.stop()
 	)
 	debounce_timer.wait_time = THEME_DEBOUNCE_SEC
@@ -269,6 +269,12 @@ func _init_visibility() -> void:
 
 	for container in fold_conts:
 		container.folded = true
+
+
+
+func _start_polling() -> void:
+	if data and data.auto_reload and polling_timer.is_inside_tree():
+		polling_timer.start(data.poll_rate)
 
 
 

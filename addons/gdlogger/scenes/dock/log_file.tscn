@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bq7nahsc5aca7"]
 
 [ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/gdl_theme.tres" id="1_etmb7"]
+[ext_resource type="Resource" uid="uid://dj7h7t2v8csck" path="res://addons/gdlogger/data.tres" id="3_etmb7"]
 [ext_resource type="Script" uid="uid://d0mv8q7rr2bxr" path="res://addons/gdlogger/scripts/dock/log_file.gd" id="3_u25kw"]
 
 [node name="LogFileButton" type="Button" unique_id=332590141]
@@ -17,4 +18,5 @@ alignment = 0
 autowrap_mode = 2
 expand_icon = true
 script = ExtResource("3_u25kw")
+data = ExtResource("3_etmb7")
 fallback_name = "<NA>"

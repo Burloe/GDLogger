@@ -16,13 +16,18 @@ var file_name: String = "":
 	set(value):
 		file_name = value
 		fallback_name = value
-		if value != "" and is_gl_name(value):
+		is_non_gl_log = is_gdl_name(value) 
+		if value != "" and is_gdl_name(value):
 			display_name = _get_name(file_name)
 			get_file_content()
 			var dt: String = value.lstrip(str(category_name, "(")).rstrip(").log")
 			date_stamp = dt.split("_", false, 2)[0]
 			time_stamp = dt.split("_", false, 2)[1]
-			is_non_gl_log = is_gl_name(value) 
+		else: 
+			if value.length() >= 20:
+				add_theme_font_size_override("font_size", 12)
+			else:
+				remove_theme_font_size_override("font_size")		
 
 var open_external_setting: bool = false
 
@@ -72,28 +77,32 @@ func is_file_valid() -> bool:
 
 
 
-func is_gl_name(file_name_to_check: String) -> bool: 
+func is_gdl_name(file_name_to_check: String) -> bool: 
+	autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	if text.length() >= 20: add_theme_constant_override("font_size", 12)
+	
 	if file_name_to_check.is_empty() or category_name.is_empty():
-			return false
+		return false
 
 	var prefix := category_name + "("
 	if !file_name_to_check.begins_with(prefix) or !file_name_to_check.ends_with(").log"):
-			return false
+		return false
 
 	var stamp_len := file_name_to_check.length() - prefix.length() - 5
 	if stamp_len != 13:
-			return false
+		return false
 
 	var stamp := file_name_to_check.substr(prefix.length(), stamp_len)
 	if stamp.substr(6, 1) != "_":
-			return false
+		return false
 
 	var date_part := stamp.substr(0, 6)
 	var time_part := stamp.substr(7, 6)
 
 	if !date_part.is_valid_int() or !time_part.is_valid_int():
-			return false
-
+		return false
+	autowrap_mode = TextServer.AUTOWRAP_WORD
+	remove_theme_constant_override("font_size")
 	return true 
 
 

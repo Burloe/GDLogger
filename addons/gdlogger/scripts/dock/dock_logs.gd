@@ -476,7 +476,7 @@ func _open_log_file(log_file: GDLLogFile) -> void:
 	
 	var fin_time: String = ""
 	var fin_date: String = ""
-	if log_file.is_gl_name(log_file.file_name):
+	if log_file.is_gdl_name(log_file.file_name):
 		var _timestamp: String = log_file.file_name.lstrip(str(log_file.category_name, "(")).rstrip(").log")
 		var _splits: Array = _timestamp.split("_") 
 		var _m: Array[String] = [
