@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://evoiwudnaiqc" path="res://addons/gdlogger/scripts/log_popup.gd" id="2_umimx"]
 [ext_resource type="Theme" uid="uid://gjcp57h03j4p" path="res://addons/gdlogger/resources/gdl_theme.tres" id="3_bte71"]
-[ext_resource type="LabelSettings" uid="uid://cqn5x8cb7vjy3" path="res://addons/gdlogger/file_content_label_settings.tres" id="4_umimx"]
+[ext_resource type="LabelSettings" uid="uid://cqn5x8cb7vjy3" path="res://addons/gdlogger/resources/file_content_label_settings.tres" id="4_umimx"]
 
 [sub_resource type="DPITexture" id="DPITexture_jp7po"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M2 1a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h1V3h9V2a1 1 0 0 0-1-1zm3 3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm1 2h7v7H6z\"/></svg>

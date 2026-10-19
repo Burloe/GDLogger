@@ -18,7 +18,7 @@ config/features=PackedStringArray("4.8", "Forward Plus")
 
 [autoload]
 
-Log="*uid://dm7mwwoselesw"
+Log="*res://addons/gdlogger/scenes/log.tscn"
 
 [display]
 
